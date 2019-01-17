@@ -5,9 +5,9 @@ if(!empty($title)){echo $before_title . $title . $after_title;}
 
 //The Widget
 ?>
-<div class="col-md-12">
+<div class="col-12">
   <div class="row content-area">
-    <div class="col-md-12">
+    <div class="col-12">
       <?php eval('?>'.$php_content); ?>
     </div>
   </div>

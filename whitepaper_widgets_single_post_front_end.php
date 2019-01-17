@@ -17,11 +17,11 @@ if(!empty($before_widget_layout)) {
     <div class="<?php echo $single_class; ?>">
       <?php
         if(empty($single_layout)){ ?>
-      <div class="col-md-12 single-post">
+      <div class="col-12 single-post">
         <?php the_content(); ?>
       </div>
     <?php } else { ?>
-      <div class="col-md-12 single-post">
+      <div class="col-12 single-post">
         <?php eval('?>'.$single_layout); ?>
       </div>
       <?php } ?>
