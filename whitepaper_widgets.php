@@ -42,44 +42,6 @@ class WhitePaper_PHP_Code extends WP_Widget {
 	}
 }
 
-/************* Logo ***********************/
-class WhitePaper_Logo extends WP_Widget {
-
-	function whitepaper_logo() {
-		// Instantiate the parent object
-		parent::__construct( false, "Logo" );
-	}
-
-	function widget( $args, $instance ) {
-		// Widget output
-    extract( $args );
-		$title = apply_filters( 'widget_title', $instance['title']);
-		$logo_path = $instance['logo_path'];
-		$logo_class = $instance['logo_class'];
-
-		require( 'whitepaper_widgets_logo_front_end.php' );
-	}
-
-	function update( $new_instance, $old_instance ) {
-		// Save widget options
-    $instance = $old_instance;
-    $instance['title'] = strip_tags($new_instance['title']);
-		$instance['logo_path'] = strip_tags($new_instance['logo_path']);
-		$instance['logo_class'] = strip_tags($new_instance['logo_class']);
-
-    return $instance;
-	}
-
-	function form( $instance ) {
-		// Output admin widget options form
-    $title = esc_attr( $instance['title'] );
-		$logo_path = esc_attr( $instance['logo_path'] );
-		$logo_class = esc_attr( $instance['logo_class'] );
-
-		require( 'whitepaper_widgets_logo_fields.php' );
-	}
-}
-
 /************* Bootstrap Menu ***********************/
 class WhitePaper_Bootstrap_Menu extends WP_Widget {
 
@@ -254,136 +216,6 @@ class WhitePaper_Single_Post extends WP_Widget {
 	}
 }
 
-/************* CTA's ***********************/
-class WhitePaper_CTAs extends WP_Widget {
-
-	function whitepaper_ctas() {
-		// Instantiate the parent object
-		parent::__construct( false, "CTA's" );
-	}
-
-	function widget( $args, $instance ) {
-		// Widget output
-    extract( $args );
-    $title = apply_filters( 'widget_title', $instance['title']);
-		$num_ctas = $instance['num_ctas'];
-		$cta_class = $instance['cta_class'];
-		$cta_layout = apply_filters( 'widget_text', $instance['cta_layout'] );
-
-		require( 'whitepaper_widgets_ctas_front_end.php' );
-	}
-
-	function update( $new_instance, $old_instance ) {
-		// Save widget options
-    $instance = $old_instance;
-    $instance['title'] = strip_tags($new_instance['title']);
-		$instance['num_ctas'] = strip_tags($new_instance['num_ctas']);
-		$instance['cta_class'] = strip_tags($new_instance['cta_class']);
-		$instance['cta_layout'] = $new_instance['cta_layout'];
-
-    return $instance;
-	}
-
-	function form( $instance ) {
-		// Output admin widget options form
-    $title = esc_attr( $instance['title'] );
-		$num_ctas = esc_attr( $instance['num_ctas'] );
-		$cta_class = esc_attr( $instance['cta_class'] );
-		$cta_layout = esc_attr( $instance['cta_layout'] );
-
-		require( 'whitepaper_widgets_ctas_fields.php' );
-	}
-}
-
-
-/*************** Hero Image ***************/
-class WhitePaper_Hero_Image extends WP_Widget {
-
-	function whitepaper_hero_image() {
-		// Instantiate the parent object
-		parent::__construct( false, "Hero Image" );
-	}
-
-	function widget( $args, $instance ) {
-		// Widget output
-    extract( $args );
-    $title = apply_filters( 'widget_title', $instance['title']);
-		$img_path = $instance['img_path'];
-		$hero_class = $instance['hero_class'];
-		$text_overlay = apply_filters( 'widget_text', $instance['text_overlay']);
-		$hero_layout = apply_filters( 'widget_text', $instance['hero_layout'] );
-
-		require( 'whitepaper_widgets_hero_front_end.php' );
-	}
-
-	function update( $new_instance, $old_instance ) {
-		// Save widget options
-    $instance = $old_instance;
-    $instance['title'] = strip_tags($new_instance['title']);
-		$instance['img_path'] = strip_tags($new_instance['img_path']);
-		$instance['hero_class'] = strip_tags($new_instance['hero_class']);
-		$instance['text_overlay'] = $new_instance['text_overlay'];
-		$instance['hero_layout'] = $new_instance['hero_layout'];
-
-    return $instance;
-	}
-
-	function form( $instance ) {
-		// Output admin widget options form
-    $title = esc_attr( $instance['title'] );
-		$img_path = esc_attr( $instance['img_path'] );
-		$hero_class = esc_attr( $instance['hero_class'] );
-		$text_overlay = esc_attr( $instance['text_overlay'] );
-		$hero_layout = esc_attr( $instance['hero_layout'] );
-
-		require( 'whitepaper_widgets_hero_fields.php' );
-	}
-}
-
-/************************ Twitter Widget **********************************/
-class WhitePaper_Twitter_Carousel extends WP_Widget {
-
-	function whitepaper_twitter_carousel() {
-		// Instantiate the parent object
-		parent::__construct( false, "Twitter Carousel" );
-	}
-
-	function widget( $args, $instance ) {
-		// Widget output
-    extract( $args );
-    $title = apply_filters( 'widget_title', $instance['title']);
-		$twitter_handle = $instance['twitter_handle'];
-		$num_tweets = $instance['num_tweets'];
-		$tweet_class = $instance['tweet_class'];
-		$twitter_layout = apply_filters( 'widget_text', $instance['twitter_layout'] );
-
-		require( 'whitepaper_widgets_twitter_front_end.php' );
-	}
-
-	function update( $new_instance, $old_instance ) {
-		// Save widget options
-    $instance = $old_instance;
-    $instance['title'] = strip_tags($new_instance['title']);
-		$instance['twitter_handle'] = strip_tags($new_instance['twitter_handle']);
-		$instance['num_tweets'] = strip_tags($new_instance['num_tweets']);
-		$instance['tweet_class'] = strip_tags($new_instance['tweet_class']);
-		$instance['twitter_layout'] = $new_instance['twitter_layout'];
-
-    return $instance;
-	}
-
-	function form( $instance ) {
-		// Output admin widget options form
-    $title = esc_attr( $instance['title'] );
-		$twitter_handle = esc_attr( $instance['twitter_handle'] );
-		$num_tweets = esc_attr( $instance['num_tweets'] );
-		$tweet_class = esc_attr( $instance['tweet_class'] );
-		$twitter_layout = esc_attr( $instance['twitter_layout'] );
-
-		require( 'whitepaper_widgets_twitter_fields.php' );
-	}
-}
-
 /************* Related Content ***********************/
 class WhitePaper_Related_Content extends WP_Widget {
 
@@ -425,14 +257,10 @@ class WhitePaper_Related_Content extends WP_Widget {
 /************************ Register Widgets Function ***********************/
 function whitepaper_register_widgets() {
 	register_widget( 'WhitePaper_PHP_Code' );
-	register_widget( 'WhitePaper_Logo' );
 	register_widget( 'WhitePaper_Bootstrap_Menu' );
 	register_widget( 'WhitePaper_Bootstrap_Menu_Toggle' );
 	register_widget( 'WhitePaper_Loop' );
 	register_widget( 'WhitePaper_Single_Post' );
-	register_widget( 'WhitePaper_CTAs' );
-	register_widget( 'WhitePaper_Hero_Image' );
-	register_widget( 'WhitePaper_Twitter_Carousel' );
 	register_widget( 'WhitePaper_Related_Content' );
 }
 
