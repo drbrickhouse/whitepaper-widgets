@@ -4,7 +4,7 @@
 if(file_exists(get_stylesheet_directory() . '/includes/class-wp-bootstrap-navwalker.php')) {
   require_once(get_stylesheet_directory() . '/includes/class-wp-bootstrap-navwalker.php');
 } else {
-  require_once('/includes/class-wp-bootstrap-navwalker.php');
+  require_once('includes/class-wp-bootstrap-navwalker.php');
 }
 ?>
 
@@ -23,7 +23,7 @@ if(file_exists(get_stylesheet_directory() . '/includes/class-wp-bootstrap-navwal
         'menu_class' => $navbarClass,
         'fallback_cb' => 'wp_page_menu',
         //Process nav menu using our custom nav walker
-        'walker' => new wp_bootstrap_navwalker())
+        'walker' => new WP_Bootstrap_Navwalker())
       );
 
       wp_nav_menu( $defaults );
