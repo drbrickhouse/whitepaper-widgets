@@ -1,11 +1,21 @@
-<nav role="navigation" class="navbar navbar-static-top navbar-default">
+<?php
+
+//Register Custom Navigation Walker
+if(file_exists(get_stylesheet_directory() . '/includes/class-wp-bootstrap-navwalker.php')) {
+  require_once(get_stylesheet_directory() . '/includes/class-wp-bootstrap-navwalker.php');
+} else {
+  require_once('/includes/class-wp-bootstrap-navwalker.php');
+}
+?>
+
+<nav role="navigation" class="navbar <?php echo $nav_class; ?>">
   <div id="navbarCollapse" class="collapse navbar-collapse">
     <?php
       function get_menu_classes($inputs) {
         $inputs = $inputs.' nav navbar-nav no-bullet';
         return $inputs;
       };
-      $navbarClass = get_menu_classes($menu_class);
+      $navbarClass = get_menu_classes($list_class);
       $defaults = ( array(
         'theme_location' => 'primary-menu',
         'depth' => 2,

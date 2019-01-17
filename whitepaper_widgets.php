@@ -92,7 +92,8 @@ class WhitePaper_Bootstrap_Menu extends WP_Widget {
 		// Widget output
     extract( $args );
     $title = apply_filters( 'widget_title', $instance['title']);
-		$menu_class = $instance['menu_class'];
+		$nav_class = $instance['nav_class'];
+		$list_class = $instance['list_class'];
 
 		require( 'whitepaper_widgets_bootstrap_menu_front_end.php' );
 	}
@@ -101,7 +102,8 @@ class WhitePaper_Bootstrap_Menu extends WP_Widget {
 		// Save widget options
     $instance = $old_instance;
     $instance['title'] = strip_tags($new_instance['title']);
-		$instance['menu_class'] = strip_tags($new_instance['menu_class']);
+		$instance['nav_class'] = strip_tags($new_instance['nav_class']);
+		$instance['list_class'] = strip_tags($new_instance['list_class']);
 
     return $instance;
 	}
@@ -109,7 +111,8 @@ class WhitePaper_Bootstrap_Menu extends WP_Widget {
 	function form( $instance ) {
 		// Output admin widget options form
     $title = esc_attr( $instance['title'] );
-		$menu_class = esc_attr( $instance['menu_class'] );
+		$nav_class = esc_attr( $instance['nav_class'] );
+		$list_class = esc_attr( $instance['list_class'] );
 
 		require( 'whitepaper_widgets_bootstrap_menu_fields.php' );
 	}
