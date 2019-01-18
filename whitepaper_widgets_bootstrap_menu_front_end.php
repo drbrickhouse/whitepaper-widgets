@@ -1,5 +1,4 @@
 <?php
-
 //Register Custom Navigation Walker
 if(file_exists(get_stylesheet_directory() . '/includes/class-wp-bootstrap-navwalker.php')) {
   require_once(get_stylesheet_directory() . '/includes/class-wp-bootstrap-navwalker.php');
@@ -9,7 +8,7 @@ if(file_exists(get_stylesheet_directory() . '/includes/class-wp-bootstrap-navwal
 ?>
 
 <nav role="navigation" class="navbar <?php echo $nav_class; ?>">
-  <div id="navbarCollapse" class="collapse navbar-collapse">
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <?php
       function get_menu_classes($inputs) {
         $inputs = $inputs.' nav navbar-nav no-bullet';

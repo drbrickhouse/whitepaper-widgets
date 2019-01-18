@@ -1,6 +1,5 @@
-<div class="navbar-header">
-  <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
-   <span class="sr-only">Toggle Navigation</span>
-   <i class="fa fa-bars"></i>
+<div class="navbar-toggle-button <?php echo $toggle_class; ?>">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
   </button>
 </div>
