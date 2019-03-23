@@ -42,6 +42,40 @@ class WhitePaper_PHP_Code extends WP_Widget {
 	}
 }
 
+/************* Advanced Image ***********************/
+class WhitePaper_Advanced_Image extends WP_Widget {
+	function whitepaper_advanced_image() {
+		// Instantiate the parent object
+		parent::__construct( false, "Advanced Image" );
+	}
+	function widget( $args, $instance ) {
+		// Widget output
+    extract( $args );
+		$title = apply_filters( 'widget_title', $instance['title']);
+		$image_path = $instance['image_path'];
+		$image_class = $instance['image_class'];
+		$image_link = $instance['image_link'];
+		require( 'whitepaper_widgets_advanced_image_front_end.php' );
+	}
+	function update( $new_instance, $old_instance ) {
+		// Save widget options
+    $instance = $old_instance;
+    $instance['title'] = strip_tags($new_instance['title']);
+		$instance['image_path'] = strip_tags($new_instance['image_path']);
+		$instance['image_class'] = strip_tags($new_instance['image_class']);
+		$instance['image_link'] = strip_tags($new_instance['image_link']);
+    return $instance;
+	}
+	function form( $instance ) {
+		// Output admin widget options form
+    $title = esc_attr( $instance['title'] );
+		$image_path = esc_attr( $instance['image_path'] );
+		$image_class = esc_attr( $instance['image_class'] );
+		$image_link = esc_attr( $instance['image_link'] );
+		require( 'whitepaper_widgets_advanced_image_fields.php' );
+	}
+}
+
 /************* Bootstrap Menu ***********************/
 class WhitePaper_Bootstrap_Menu extends WP_Widget {
 
@@ -257,6 +291,7 @@ class WhitePaper_Related_Content extends WP_Widget {
 /************************ Register Widgets Function ***********************/
 function whitepaper_register_widgets() {
 	register_widget( 'WhitePaper_PHP_Code' );
+	register_widget( 'WhitePaper_Advanced_Image' );
 	register_widget( 'WhitePaper_Bootstrap_Menu' );
 	register_widget( 'WhitePaper_Bootstrap_Menu_Toggle' );
 	register_widget( 'WhitePaper_Loop' );
