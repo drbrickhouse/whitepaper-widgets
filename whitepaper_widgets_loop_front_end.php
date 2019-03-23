@@ -1,8 +1,11 @@
 <?php
+//Replacing Handlebars
+require_once __DIR__ . '/includes/whitepaper_widgets_functions.php';
+
 //Before The Widget
 echo $before_widget;
 if(!empty($before_widget_layout)) {
-  eval('?>'.$before_widget_layout);
+  eval('?>'.whitepaper_widgets_handlebars($before_widget_layout));
 } else {
   if(!empty($title)){echo $before_title . $title . $after_title;}
 }
@@ -17,7 +20,7 @@ if(!empty($before_widget_layout)) {
     <div class="<?php echo $post_class; ?>">
       <?php
         if(!empty($post_layout)){
-          eval('?>'.$post_layout);
+          eval('?>'.whitepaper_widgets_handlebars($post_layout));
         } else { ?>
       <h3><?php the_title(); ?></h3>
       <?php the_content(); ?>
@@ -35,7 +38,7 @@ if(!empty($before_widget_layout)) {
 <?php
 //After The Widget
 if (!empty($after_widget_layout)) {
-  eval('?>'.$after_widget_layout);
+  eval('?>'.whitepaper_widgets_handlebars($after_widget_layout));
 }
 echo $after_widget;
 ?>
